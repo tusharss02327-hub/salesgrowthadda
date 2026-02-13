@@ -1,7 +1,9 @@
 *{margin: 0;padding: 0;box-sizing: border-box;}
 
+html{overflow-x: hidden !important;}
+
 body {
-    overflow-x: hidden;
+    overflow-x: hidden !important;
     overflow-y: auto;
     background-color: #f0f0f0;
     font-family: Arial, sans-serif;
@@ -14,81 +16,99 @@ h1,h2,h3,h4{
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;}
-  
-#loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0,0,0,0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;}
-.loader {
-    animation: rotation 0.3s linear infinite;
-  width: 212px;
-  height: px;
-  display: block;
-  margin: 30px auto;
-  background-image: linear-gradient(#FFF 50px, transparent 0), linear-gradient(#FFF 50px, transparent 0), linear-gradient(#FFF 50px, transparent 0), linear-gradient(#FFF 50px, transparent 0), radial-gradient(circle 14px, #FFF 100%, transparent 0);
-  background-size: 48px 15px , 15px 35px, 15px 35px, 25px 15px, 28px 28px;
-  background-position: 25px 5px, 58px 20px, 25px 17px, 2px 37px, 76px 0px;
-  background-repeat: no-repeat;
-  position: relative;
-  transform: rotate(-45deg);
-  box-sizing: border-box;
-}
-.loader::after,
-.loader::before {
-  content: '';  
-  position: absolute;
-  width: 56px;
-  height: 56px;
-  border: 6px solid #FFF;
-  border-radius: 50%;
-  left: -45px;
-  top: -10px;
-  background-repeat: no-repeat;
-  background-image: linear-gradient(#FFF 64px, transparent 0), linear-gradient(#FFF 66px, transparent 0), radial-gradient(circle 4px, #FFF 100%, transparent 0);
-  background-size: 40px 1px , 1px 40px, 8px 8px;
-  background-position: center center;
-  box-sizing: border-box;
-  animation: rotation 0.3s linear infinite;
-}
-.loader::before {
-  left: 25px;
-  top: 60px;
-}
-
-
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }} 
 
 header{
  background:#fff;
   padding:6px 0px}
 
 
+.custom-toggler {
+    border: none;
+    background: transparent;
+    padding: 10px;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.custom-toggler:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.hamburger-icon {
+    position: relative;
+    width: 30px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hamburger-icon span {
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background: linear-gradient(to top, #243949 0%, #517fa4 100%);
+    transition: 0.5s;
+}
+
+.hamburger-icon span::before {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background: linear-gradient(to top, #243949 0%, #517fa4 100%);
+    transform: translateY(-8px);
+    transition: 0.5s;
+}
+
+.hamburger-icon span::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background: linear-gradient(to top, #243949 0%, #517fa4 100%);
+    transform: translateY(8px);
+    transition: 0.5s;
+}
+
+
+.custom-toggler[aria-expanded="true"] .hamburger-icon span {
+    background: transparent;
+}
+
+.custom-toggler[aria-expanded="true"] .hamburger-icon span::before {
+    transform: translateY(0) rotate(45deg);
+}
+
+.custom-toggler[aria-expanded="true"] .hamburger-icon span::after {
+    transform: translateY(0) rotate(-45deg);
+}
+
+
+
+
 .container img{width: 130px;}
 .collapse a{transition: 0.3s linear;}
 .collapse a:hover{color:#E7252C !important;transition: 0.3s linear;}  
+.navbar-collapse {
+  max-height: none !important;
+    overflow-x: hidden;
+  overflow: visible !important;
+}
 
 video{object-fit: cover;overflow: hidden;height:80vh;}
 .container-fluid{background-blend-mode: overlay; padding-left: 0 !important;
   padding-right: 0 !important;}
 .desc {
-    font-size: 25px;
-    color: white;
-    min-height: 40px;
+    color: white; 
 }
-.desc h1{font-size: 3.75rem;}
+.desc h1{font-size: 3.45rem;}
+@media screen and (max-width: 767.9px) {
+    .desc h1{font-size:2rem;}
+}
 
 .txt-rotate {
     color: white;

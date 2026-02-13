@@ -22,16 +22,11 @@
 </head>
 
 <body>
-<div id="loader">
-  <span class="loader"></span>
-  <div class="loading-text">LOADING</div>
-</div>
-
-<div id="mainContent" style="display: none;">
+    
 <!---header-->
 
 <header data-aos="fade-down">
-<nav class="navbar navbar-expand-lg navbar-dark fixed top" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg navbar-dark sticky top" data-bs-theme="dark">
 <div class="container">
 <a href="#">
     <img src="SALESADDALOGO.png"></a>
@@ -41,7 +36,7 @@
         aria-controls="navbarNav" 
         aria-expanded="false" 
         aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
+  <span class="hamburger-icon"></span>
 </button>
 
          <div class="collapse navbar-collapse d-lg-flex justify-content-lg-end" id="navbarNav">
@@ -534,7 +529,7 @@ Event Management</h4>
       </video>
     </div>
 
-    <div class="count-area bg-light">
+    <div class="count-area bg-light" data-aos="fade-down">
         <div class="container">
             <div class="row d-flex flex-wrap">
                 <div class="count-sec">
@@ -599,7 +594,7 @@ Event Management</h4>
 </section>
 
 
-<footer>
+<footer data-aos="#">
     <div class="footer">
         <div class="f-border"> </div>
         <div class="container-fluid">
@@ -662,9 +657,9 @@ Event Management</h4>
                             </div>
                             <div class="col-7 col-sm-8 col-lg-6 col-xl-4">
                                 <div class="socials">
-                                    <a herf="#"><i class="fa-brands fa-instagram border-start border-end"></i></a>
-                                    <a href="#"><i class="fa-brands fa-facebook-f border-end"></i></a>
-                                    <a href="#"><i class="fa-brands fa-linkedin-in border-end"></i></a>
+                                    <a herf="#"><i class="fa-brands fa-instagram border-start"></i></a>
+                                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -932,6 +927,23 @@ Event Management</h4>
 
 
 <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggler = document.querySelector('.custom-toggler');
+    const navbarCollapse = document.getElementById('navbarNav');
+    
+    if (toggler && navbarCollapse) {
+        navbarCollapse.addEventListener('show.bs.collapse', function () {
+            toggler.setAttribute('aria-expanded', 'true');
+        });
+        
+        navbarCollapse.addEventListener('hide.bs.collapse', function () {
+            toggler.setAttribute('aria-expanded', 'false');
+        });
+    }
+});
+
+
+
  let count = document.querySelectorAll(".count")
 let arr = Array.from(count)
 
@@ -1023,12 +1035,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-window.addEventListener('load', function() {
-  document.getElementById('loader').style.display = 'none';
-  document.getElementById('mainContent').style.display = 'block';
-});
-
-
 AOS.init();
 
 var TxtRotate = function(el, toRotate, period) {
@@ -1083,14 +1089,6 @@ window.onload = function() {
     }
 };
 
-button.addEventListener('click', function() {
-  document.getElementById('loader').style.display = 'flex';
-  
-  // 2 seconds baad hide
-  setTimeout(() => {
-    document.getElementById('loader').style.display = 'none';
-  }, 1000);
-});
 
 </script>
 
